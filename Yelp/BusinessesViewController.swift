@@ -8,20 +8,25 @@
 
 import UIKit
 
-class BusinessesViewController: UIViewController {
+class BusinessesViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
 
     var businesses: [Business]!
     
+    @IBOutlet weak var table: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        table.delegate = self
+        table.dataSource = self
 
         Business.searchWithTerm("Thai", completion: { (businesses: [Business]!, error: NSError!) -> Void in
             self.businesses = businesses
-        
             for business in businesses {
                 print(business.name!)
                 print(business.address!)
             }
+            self.table.reloadData()
+
         })
 
 /* Example of Yelp search with more search options specified
@@ -39,6 +44,22 @@ class BusinessesViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        if businesses != nil{
+            return businesses.count
+        }else{
+            return 0
+        }
+    
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+        let cell = table.dequeueReusableCellWithIdentifier("BusinessCell", forIndexPath: indexPath) as! BusinessCell
+        //assign the business
+        cell.business = businesses[indexPath.row]
+        return cell
     }
 
     /*
