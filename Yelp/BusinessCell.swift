@@ -38,6 +38,17 @@ class BusinessCell: UITableViewCell {
         // Initialization code
         businessimg.layer.cornerRadius = 3
         businessimg.clipsToBounds = true
+        businessLabel.preferredMaxLayoutWidth = businessLabel.frame.size.width //set the place for the label to wrap
+    }
+    
+    //called when the phone rotates
+    override func layoutSubviews() {
+        //always call the parent funciton
+        super.layoutSubviews()
+        //have to add this again to this function to get it to wrap properly
+        businessLabel.preferredMaxLayoutWidth = businessLabel.frame.size.width //set the place for the label to wrap
+
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

@@ -18,6 +18,8 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
         
         table.delegate = self
         table.dataSource = self
+        table.rowHeight = UITableViewAutomaticDimension //use autolayout to determine the table height
+        table.estimatedRowHeight = 150 //only used to estimate the scrollbar height based on the number of cells
 
         Business.searchWithTerm("Thai", completion: { (businesses: [Business]!, error: NSError!) -> Void in
             self.businesses = businesses
