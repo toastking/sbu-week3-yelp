@@ -13,9 +13,17 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
     var businesses: [Business]!
     
     @IBOutlet weak var table: UITableView!
+    var searchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //create a searchbar and add it to the navbar
+        searchBar = UISearchBar()
+        searchBar.sizeToFit()
+        
+        self.navigationItem.titleView = searchBar
+
+            
         table.delegate = self
         table.dataSource = self
         table.rowHeight = UITableViewAutomaticDimension //use autolayout to determine the table height
