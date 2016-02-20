@@ -72,7 +72,7 @@
                                                     <color key="textColor" red="0.48991737565445026" green="0.48991737565445026" blue="0.48991737565445026" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="1. Zaros " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWA-BY-gGx">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" misplaced="YES" text="1. Zaros " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWA-BY-gGx">
                                                     <rect key="frame" x="89" y="8" width="161" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -94,7 +94,6 @@
                                                 <constraint firstItem="uTM-yo-Wjy" firstAttribute="top" secondItem="xWA-BY-gGx" secondAttribute="bottom" constant="9.5" id="jd3-OC-WbJ"/>
                                                 <constraint firstItem="ejL-9h-bOt" firstAttribute="top" secondItem="G2M-wa-dNu" secondAttribute="bottom" constant="13" id="mWP-oO-M41"/>
                                                 <constraint firstItem="Zlq-dp-N5d" firstAttribute="leading" secondItem="4ba-zR-d9c" secondAttribute="leading" id="r3K-gu-aSS"/>
-                                                <constraint firstItem="G2M-wa-dNu" firstAttribute="leading" secondItem="xWA-BY-gGx" secondAttribute="trailing" constant="8" id="rXc-pV-qzB"/>
                                                 <constraint firstAttribute="trailing" secondItem="G2M-wa-dNu" secondAttribute="trailing" constant="8" id="s5Z-Fg-6Pn"/>
                                                 <constraint firstItem="Zlq-dp-N5d" firstAttribute="top" secondItem="4ba-zR-d9c" secondAttribute="bottom" constant="3" id="tkg-eS-U9F"/>
                                                 <constraint firstItem="GRg-I6-gg6" firstAttribute="centerY" secondItem="uTM-yo-Wjy" secondAttribute="centerY" id="vm5-kp-PUP"/>

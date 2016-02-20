@@ -8,18 +8,20 @@
 
 import UIKit
 
-class BusinessesViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
+class BusinessesViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate{
 
     var businesses: [Business]!
     
     @IBOutlet weak var table: UITableView!
     var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //create a searchbar and add it to the navbar
         searchBar = UISearchBar()
         searchBar.sizeToFit()
+        searchBar.delegate = self
         
         self.navigationItem.titleView = searchBar
 
@@ -70,6 +72,31 @@ class BusinessesViewController: UIViewController,UITableViewDataSource, UITableV
         //assign the business
         cell.business = businesses[indexPath.row]
         return cell
+    }
+    
+    //code for the searchbar and the cancel button
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+    }
+    
+
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        //search using the businesses class
+        Business.searchWithTerm(self.searchBar.text!, completion: { (businesses: [Business]!, error: NSError!) -> Void in
+            self.businesses = businesses
+            for business in businesses {
+                print(business.name!)
+                print(business.address!)
+            }
+            self.table.reloadData()
+            
+        })
     }
 
     /*
